@@ -13,9 +13,10 @@ module Heroku::Command
     
     def index
       puts "In order to create line charts and pie charts from your data,"
-      puts "Dbinsights will store the DATABASE_URL of your application"
+      puts "Dbinsights will store an encrypted version of the DATABASE_URL of your application"
       puts "(removing the addon will delete that info from the DbInsights database)"
       puts "Do you confirm the plugin execution ? (yes / no)"
+      print "> "
       answer = gets
       if answer.chomp == 'yes'
         RestClient::Resource.new(@dbinsights_url).put :account => {:db_url => @config_vars['DATABASE_URL']}
