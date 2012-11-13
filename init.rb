@@ -1,7 +1,4 @@
 class Heroku::Command::Dbinsights < Heroku::Command::Base
-  Help.group("DbInsights") do |group|
-    group.command "dbinsights", "enable db insights for the current app"
-  end
   
   def initialize(*args)
     super
